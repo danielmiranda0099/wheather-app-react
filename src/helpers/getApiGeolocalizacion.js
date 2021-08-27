@@ -1,33 +1,21 @@
 //import { getFetchWeather } from "./getWeatherCurrentLatLon";
 
 
-export const getApiGeolocalizacion = async ( ) => {
-    if( !navigator.geolocation ) return
+export const getApiGeolocalizacion = ( ) => {
     
-    let lat, lon;
-        
-    const sucess = (position) => {
-        lat = position.coords.latitude;
-        lon = position.coords.longitude;
-        
-        console.log(lat, lon, 'sucess')
-        //return {lat, lon};
-    }        
+    return new Promise( (resolve, reject) => {
+        if( !navigator.geolocation ) return
+        let lat, lon;
 
+        const sucess = (position) => {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+            
+            resolve ( {lat, lon} )
+        }        
 
-
-    const funcion = async () => {
-
-        const promesa = () => new Promise( (resolve, reject) => navigator.geolocation.getCurrentPosition( sucess, (err) => console.log(err) ) )
-
-        const resul = await promesa();
-        console.log('haaaaaaaaaaaa')
-        return resul; 
-    }
-
-    funcion().then( re => console.log(re, 'promesa') )
-
+        navigator.geolocation.getCurrentPosition( sucess, (err) => resolve( {lat:40.6643, lon:-73.9385} ) )
+        } )
     
-
-    console.log('no sali');
 }
+

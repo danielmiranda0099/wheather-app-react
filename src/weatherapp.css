@@ -1,0 +1,117 @@
+
+
+.container-app{
+    display: flex;
+
+    width: 100%;
+    min-height: 100vh ;
+
+    color: #A09FB1;
+}
+
+.wheather-today{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    width: 31%;
+    min-height: 100vh ;
+
+    background-color: #1E213A;
+}
+
+
+
+.search-place, .form-search-place{
+    position:absolute;
+    top: 15px;
+    left: 15px;
+
+    outline: none;
+}
+
+.search-place-close{
+    position:absolute;
+    top: 15px;
+    right: 15px;
+}
+
+
+.form-search-place :focus{
+    outline: none;
+}
+
+
+
+.more-info-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 69%;
+    min-height: 100vh;
+
+    background-color: #100E1D;
+}
+
+.more-info-content-item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    padding: 10px 50px;
+}
+
+.more-info-item{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    width: 278px;
+    height: 154px;
+
+    margin: 10px;
+
+    background-color: #1E213A;
+}
+
+input[type='range']{
+    appearance: none;
+    background-color: #f1f1f1;
+    background-image: linear-gradient(to right, HotPink calc(var(--value)*1%), black 0);
+}
+
+
+
+.predicton-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.predic-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width:160px;
+    height: 160px;
+
+    background-color: #1E213A;
+
+    margin: 5px;
+    padding: 3px;
+}
+
+.predict-card-min-max{
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+}
