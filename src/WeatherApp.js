@@ -19,11 +19,14 @@ export const WeatherApp = () => {
     const [isSearch, setIsSearch] = useState(false);
     const [place, setPlace] = useState('');
 
+    const [isCelsius, setIsCelcius] = useState('c');
+
 
     useEffect( () => {
         const funcGetLatLon = async () => {
             const {lat, lon} = await getApiGeolocalizacion();
             const jsonData = await getFetchWeather(lat, lon);
+            jsonData.main.temp = parseInt( jsonData.main.temp );
             setData( jsonData ) 
 
             const jsonPredict = await getApiWeatherPrediction(lat, lon);
@@ -38,6 +41,7 @@ export const WeatherApp = () => {
         if(place.length > 1){
             const funcGetLatLon = async () => {
                 const jsonData = await getApiWheatherBycity(place);
+                jsonData.main.temp = parseInt( jsonData.main.temp );
                 setData( jsonData );
 
                 let {lat,lon} = jsonData.coord;
@@ -54,14 +58,18 @@ export const WeatherApp = () => {
         setIsSearch( !isSearch );
     }
 
+    const buttonConvert = () => {
+        isCelsius === "c" ? setIsCelcius("f") : setIsCelcius("c");
+    }
+
 
     return(
         <div className="container-app">
         
-            <WeatherToday data={ data } setData={ setData } isSearch={ isSearch } setPlace={ setPlace } handleClickSearch={handleClickSearch}/>
+            <WeatherToday data={ data } setData={ setData } isSearch={ isSearch } setPlace={ setPlace } handleClickSearch={handleClickSearch} isCelsius={ isCelsius }  buttonConvert={ buttonConvert  } />
 
             
-            <MoreInfoWeather data={ data } dataPredict={ dataPredict } />
+            <MoreInfoWeather data={ data } dataPredict={ dataPredict } isCelsius={ isCelsius }/>
             
         </div>
     )

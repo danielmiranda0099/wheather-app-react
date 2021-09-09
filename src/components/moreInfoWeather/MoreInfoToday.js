@@ -13,9 +13,7 @@ export const MoreInfoToday = ( {data} ) => {
             <div className="more-info-item">
                 <h2>Humidity</h2>
                 <h2> {data?.main?.humidity} % </h2>
-                <input type="range" min="0" max="100" value={ data?.main?.humidity }  />
-
-
+                <input id="myinput" type="range" min="0" max="100" value={ data?.main?.humidity }  style={ { background:'linear-gradient(to right, #FFEC65 0%, #FFEC65 ' + data?.main?.humidity + '%, #fff ' + data?.main?.humidity + '%, white 100%)' } }/>
             </div>
 
             <div className="more-info-item">

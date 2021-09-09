@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Raleway', sans-serif;
+}
 
 .container-app{
     display: flex;
@@ -12,15 +14,79 @@
 .wheather-today{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-
+    
     position: relative;
 
     width: 31%;
     min-height: 100vh ;
 
     background-color: #1E213A;
+}
+
+.data-temp{
+    font-size: 85px;
+}
+
+.data-temp-padding{
+    margin-top: -300px;
+}
+
+.margin-top-info{
+    margin-top: -80px;
+}
+
+.margin-top-100{
+    margin-top: -100px;
+}
+
+
+.flex-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-convert-temp{
+    display: flex;
+}
+
+.button-convert-temp h2 {
+    margin: 5px;
+
+    padding: 14px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.button-convert-active{
+    background-color: white;
+    color: #585676;
+}
+
+.button-convert-deactive{
+    background-color: #585676;
+    color: white;
+}
+
+
+.img-background{
+    /* Ruta relativa o completa a la imagen 
+    background-image: url(/./wallpaper.jpg);
+    /* Centramos el fondo horizontal y verticalmente */ 
+    background-position: center center;
+    /* El fonde no se repite */
+    background-repeat: no-repeat;
+    /* Fijamos la imagen a la ventana para que no supere el alto de la ventana */
+    /* El fonde se re-escala automáticamente */
+    background-size: cover;
+    /* Color de fondo si la imagen no se encuentra o mientras se está cargando */
+    width: 100%;
+    /* Fuente para el texto */
+    text-align: center;
 }
 
 
@@ -33,10 +99,28 @@
     outline: none;
 }
 
+.search-place{
+    background: #6E707A;
+    color: white;
+
+    padding: 8px;
+
+    border-style: none;
+
+    cursor: pointer;
+}
+
 .search-place-close{
     position:absolute;
     top: 15px;
     right: 15px;
+
+    cursor: pointer;
+
+    background: none;
+    color: white;
+
+    border-style: none;
 }
 
 
@@ -59,11 +143,11 @@
 }
 
 .more-info-content-item{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    padding: 10px 50px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
 }
 
 .more-info-item{
@@ -80,13 +164,28 @@
     background-color: #1E213A;
 }
 
-input[type='range']{
-    appearance: none;
-    background-color: #f1f1f1;
-    background-image: linear-gradient(to right, HotPink calc(var(--value)*1%), black 0);
+
+#myinput {
+    color: red;
+    border: solid 2px white;
+    border-radius: 8px;
+    height: 7px;
+    width: 90%;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+  }
+
+#myinput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: solid 2px white;
+    background: #FFEC65;
+    cursor: ew-resize;
+    transition: background .3s ease-in-out;
 }
-
-
 
 .predicton-container{
     display: flex;
@@ -115,3 +214,53 @@ input[type='range']{
 
     width: 100%;
 }
+
+
+
+
+
+@media (max-width: 1300px){
+    
+    .predicton-container{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 5px;
+        justify-items: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 900px){
+    .container-app{
+        flex-direction: column;
+    }
+
+    .wheather-today,
+    .more-info-content{
+        width: 100%;
+    }
+
+    .data-temp-padding{
+        margin-top: -200px;
+    }
+
+    .margin-top-100{
+        margin-top: -50px;
+    }
+
+    .predicton-container{
+        flex-direction: column;
+    }
+
+    .more-info-content-item{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px){
+    .predicton-container{
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+
